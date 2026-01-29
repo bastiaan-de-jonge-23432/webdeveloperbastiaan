@@ -1,180 +1,93 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bastiaan | Webdeveloper</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bastiaan | Webdeveloper</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+<style>
+  * {margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+  body {font-family: Arial, sans-serif;background:#000;color:#00ff7f;line-height:1.7;}
+  a {color:#00ff7f;text-decoration:none;font-weight:bold;}
+  section {max-width:1200px;margin:auto;padding:80px 20px;}
+  h2 {font-size:2.5rem;margin-bottom:20px;}
+  p {color:#aaffaa;font-size:1.15rem;}
+  
+  /* LANGUAGE BUTTONS */
+  .lang-buttons {text-align:center;padding:20px;background:#003300;}
+  .lang-buttons button {
+    background:#111;color:#00ff7f;border:2px solid #00ff7f;
+    padding:10px 20px;margin:5px;border-radius:10px;
+    cursor:pointer;font-weight:bold;
+    transition:0.3s;
+  }
+  .lang-buttons button:hover {background:#00ff7f;color:#000;}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #00ff7f;
-      line-height: 1.7;
-    }
+  /* HEADER */
+  header {text-align:center;padding:150px 20px;background:linear-gradient(135deg,#000,#003300);}
+  .header-images {display:flex;justify-content:center;align-items:center;gap:50px;flex-wrap:wrap;margin-bottom:30px;}
+  .header-images img {width:300px;height:300px;border-radius:50%;border:5px solid #00ff7f;object-fit:cover;box-shadow:0 0 40px #00ff7f;transition: transform 0.5s ease;}
+  .header-images img:hover {transform: scale(1.1) rotate(-5deg);}
+  header h1 {font-size:4rem;margin-top:30px;}
+  header p {font-size:1.7rem;margin-top:10px;}
 
-    a {
-      color: #00ff7f;
-      text-decoration: none;
-      font-weight: bold;
-    }
+  /* NAV */
+  nav {position:sticky;top:0;background:#003300;display:flex;justify-content:center;z-index:10;}
+  nav a {padding:20px 25px;}
+  nav a:hover {background:rgba(0,255,127,0.2);}
 
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 80px 20px;
-    }
+  /* PROJECTEN */
+  .box {background:#111;padding:30px;border-radius:20px;margin-top:30px;box-shadow:0 0 30px rgba(0,255,127,0.4);text-align:center;}
 
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
+  /* REVIEWS */
+  .reviews {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:40px;}
+  .review {background:#111;padding:25px;border-radius:20px;box-shadow:0 0 25px rgba(0,255,127,0.5);transition:transform 0.3s;}
+  .review:hover {transform: translateY(-10px);}
+  .stars {font-size:1.8rem;margin-bottom:10px;}
+  .review span {font-size:0.9rem;opacity:0.8;}
 
-    p {
-      color: #aaffaa;
-      font-size: 1.15rem;
-    }
+  /* PRIJZEN */
+  table {width:100%;margin-top:30px;border-collapse:collapse;background:#111;border-radius:15px;overflow:hidden;}
+  th,td {padding:18px;border-bottom:1px solid #00ff7f;}
+  th {background:#003300;}
 
-    /* HEADER */
-    header {
-      text-align: center;
-      padding: 100px 20px;
-      background: linear-gradient(135deg, #000, #003300);
-    }
+  /* CONTACT */
+  .mail-btn {display:inline-block;margin-top:30px;padding:20px 40px;border:2px solid #00ff7f;border-radius:15px;font-size:1.5rem;}
+  .mail-btn:hover {background:#00ff7f;color:#000;}
 
-    header h1 {
-      font-size: 3.5rem;
-    }
-
-    header p {
-      font-size: 1.5rem;
-      margin-top: 10px;
-    }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      background: #003300;
-      display: flex;
-      justify-content: center;
-      z-index: 10;
-    }
-
-    nav a {
-      padding: 20px 25px;
-    }
-
-    nav a:hover {
-      background: rgba(0,255,127,0.2);
-    }
-
-    /* PROJECTEN */
-    .box {
-      background: #111;
-      padding: 30px;
-      border-radius: 20px;
-      margin-top: 30px;
-      box-shadow: 0 0 30px rgba(0,255,127,0.4);
-      text-align: center;
-    }
-
-    /* REVIEWS */
-    .reviews {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .review {
-      background: #111;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0,255,127,0.5);
-      transition: transform 0.3s;
-    }
-
-    .review:hover {
-      transform: translateY(-10px);
-    }
-
-    .stars {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    .review span {
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    /* PRIJZEN */
-    table {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: #111;
-      border-radius: 15px;
-      overflow: hidden;
-    }
-
-    th, td {
-      padding: 18px;
-      border-bottom: 1px solid #00ff7f;
-    }
-
-    th {
-      background: #003300;
-    }
-
-    /* CONTACT */
-    .mail-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 20px 40px;
-      border: 2px solid #00ff7f;
-      border-radius: 15px;
-      font-size: 1.5rem;
-    }
-
-    .mail-btn:hover {
-      background: #00ff7f;
-      color: #000;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #003300;
-    }
-  </style>
+  footer {text-align:center;padding:30px;background:#003300;}
+</style>
 </head>
 <body>
 
+<!-- LANGUAGE SWITCH BUTTONS -->
+<div class="lang-buttons">
+  <button onclick="setLanguage('nl')">Nederlands</button>
+  <button onclick="setLanguage('en')">English</button>
+  <button onclick="setLanguage('de')">Deutsch</button>
+  <button onclick="setLanguage('fr')">Français</button>
+</div>
+
 <header>
-  <h1>Bastiaan</h1>
-  <p>Webdeveloper • 14 jaar • Nederland</p>
+  <div class="header-images">
+    <img src="bastiaan.png" alt="Bastiaan">
+    <img src="code.png" alt="Code">
+  </div>
+  <h1 id="header-name">Bastiaan</h1>
+  <p id="header-desc">Webdeveloper • 14 jaar • Nederland</p>
 </header>
 
 <nav>
-  <a href="#about">Over mij</a>
-  <a href="#projects">Projecten</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#pricing">Prijzen</a>
-  <a href="#contact">Contact</a>
+  <a href="#about" id="nav-about">Over mij</a>
+  <a href="#projects" id="nav-projects">Projecten</a>
+  <a href="#reviews" id="nav-reviews">Reviews</a>
+  <a href="#pricing" id="nav-pricing">Prijzen</a>
+  <a href="#contact" id="nav-contact">Contact</a>
 </nav>
 
 <section id="about">
-  <h2>Over mij</h2>
-  <p>
+  <h2 id="about-title">Over mij</h2>
+  <p id="about-text">
     Ik ben Bastiaan, een jonge webdeveloper uit Nederland.  
     Ik bouw moderne, snelle en mobielvriendelijke websites voor ondernemers en kleine bedrijven.
     Op dit moment bied ik mijn diensten gratis aan om ervaring en projecten op te bouwen.
@@ -182,84 +95,84 @@
 </section>
 
 <section id="projects">
-  <h2>Projecten</h2>
+  <h2 id="projects-title">Projecten</h2>
   <div class="box">
-    <p>
+    <p id="projects-text">
       Op dit moment zijn er nog geen openstaande projecten.<br>
       Wil je voorbeelden zien of een demo ontvangen?
     </p>
     <br>
-    <a class="mail-btn" href="mailto:webdeveloperbastiaan@gmail.com">
+    <a class="mail-btn" id="projects-mail" href="mailto:webdeveloperbastiaan@gmail.com">
       Mail mij voor voorbeelden
     </a>
   </div>
 </section>
 
 <section id="reviews">
-  <h2>Reviews</h2>
-  <p>Voorbeeldreviews van demo- en testprojecten.</p>
+  <h2 id="reviews-title">Reviews</h2>
+  <p id="reviews-desc">Voorbeeldreviews van demo- en testprojecten.</p>
 
   <div class="reviews">
     <div class="review">
       <div class="stars">★★★★★</div>
-      <p>Strak design en snelle website. Ziet er professioneel uit.</p>
-      <span>– Nick Olaak -</span>
+      <p id="review1-text">Strak design en snelle website. Ziet er professioneel uit.</p>
+      <span id="review1-name">– Nick Olaak</span>
     </div>
 
     <div class="review">
       <div class="stars">★★★★★</div>
-      <p>Goede communicatie en denkt goed mee met wat je wilt.</p>
-      <span>– Janne Sleijter -</span>
+      <p id="review2-text">Goede communicatie en denkt goed mee met wat je wilt.</p>
+      <span id="review2-name">– Janne Sleijter</span>
     </div>
 
     <div class="review">
       <div class="stars">★★★★★</div>
-      <p>Website werkt perfect op mobiel en laadt snel.</p>
-      <span>– Timo Wellenburg -</span>
+      <p id="review3-text">Website werkt perfect op mobiel en laadt snel.</p>
+      <span id="review3-name">– Timo Wellenburg</span>
     </div>
   </div>
 </section>
 
 <section id="pricing">
-  <h2>Prijzen</h2>
-  <p>Alle diensten zijn momenteel gratis.</p>
+  <h2 id="pricing-title">Prijzen</h2>
+  <p id="pricing-desc">Alle diensten zijn momenteel gratis.</p>
 
   <table>
     <tr>
-      <th>Dienst</th>
-      <th>Omschrijving</th>
-      <th>Prijs</th>
+      <th id="price-th1">Dienst</th>
+      <th id="price-th2">Omschrijving</th>
+      <th id="price-th3">Prijs</th>
     </tr>
     <tr>
-      <td>Website bouwen</td>
-      <td>Volledige website van A tot Z</td>
+      <td id="price1">Website bouwen</td>
+      <td id="price1-desc">Volledige website van A tot Z</td>
       <td>Gratis</td>
     </tr>
     <tr>
-      <td>Website verbeteren</td>
-      <td>Design, snelheid en mobiel</td>
+      <td id="price2">Website verbeteren</td>
+      <td id="price2-desc">Design, snelheid en mobiel</td>
       <td>Gratis</td>
     </tr>
     <tr>
-      <td>Voorbeelden / demo’s</td>
-      <td>Op aanvraag via e-mail</td>
+      <td id="price3">Voorbeelden / demo’s</td>
+      <td id="price3-desc">Op aanvraag via e-mail</td>
       <td>Gratis</td>
     </tr>
   </table>
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
-  <p>Klaar om te starten of vragen? Mail mij direct.</p>
+  <h2 id="contact-title">Contact</h2>
+  <p id="contact-text">Klaar om te starten of vragen? Mail mij direct.</p>
 
-  <a class="mail-btn" href="mailto:webdeveloperbastiaan@gmail.com">
+  <a class="mail-btn" id="contact-mail" href="mailto:webdeveloperbastiaan@gmail.com">
     Mail Bastiaan
   </a>
 
-  <p style="margin-top:30px;">
+  <p style="margin-top:30px;" id="contact-info">
     Tel: 0683846454<br>
     Email: webdeveloperbastiaan@gmail.com<br>
-    Website: https://bastiaan-de-jonge-23432.github.io/webdeveloperbastiaan/
+    Website: <a href="https://bastiaan-de-jonge-23432.github.io/webdeveloperbastiaan/" target="_blank">webdeveloperbastiaan</a>
   </p>
 </section>
 
@@ -267,8 +180,196 @@
   © 2026 Bastiaan
 </footer>
 
+<script>
+  const texts = {
+    nl: {
+      headerDesc: "Webdeveloper • 14 jaar • Nederland",
+      navAbout: "Over mij",
+      navProjects: "Projecten",
+      navReviews: "Reviews",
+      navPricing: "Prijzen",
+      navContact: "Contact",
+      aboutTitle: "Over mij",
+      aboutText: "Ik ben Bastiaan, een jonge webdeveloper uit Nederland. Ik bouw moderne, snelle en mobielvriendelijke websites voor ondernemers en kleine bedrijven. Op dit moment bied ik mijn diensten gratis aan om ervaring en projecten op te bouwen.",
+      projectsTitle: "Projecten",
+      projectsText: "Op dit moment zijn er nog geen openstaande projecten.\nWil je voorbeelden zien of een demo ontvangen?",
+      projectsMail: "Mail mij voor voorbeelden",
+      reviewsTitle: "Reviews",
+      reviewsDesc: "Voorbeeldreviews van demo- en testprojecten.",
+      review1Text: "Strak design en snelle website. Ziet er professioneel uit.",
+      review1Name: "– Nick Olaak",
+      review2Text: "Goede communicatie en denkt goed mee met wat je wilt.",
+      review2Name: "– Janne Sleijter",
+      review3Text: "Website werkt perfect op mobiel en laadt snel.",
+      review3Name: "– Timo Wellenburg",
+      pricingTitle: "Prijzen",
+      pricingDesc: "Alle diensten zijn momenteel gratis.",
+      priceTh1: "Dienst",
+      priceTh2: "Omschrijving",
+      priceTh3: "Prijs",
+      price1: "Website bouwen",
+      price1Desc: "Volledige website van A tot Z",
+      price2: "Website verbeteren",
+      price2Desc: "Design, snelheid en mobiel",
+      price3: "Voorbeelden / demo’s",
+      price3Desc: "Op aanvraag via e-mail",
+      contactTitle: "Contact",
+      contactText: "Klaar om te starten of vragen? Mail mij direct.",
+      contactMail: "Mail Bastiaan",
+      contactInfo: "Tel: 0683846454<br>Email: webdeveloperbastiaan@gmail.com<br>Website: <a href='https://bastiaan-de-jonge-23432.github.io/webdeveloperbastiaan/' target='_blank'>webdeveloperbastiaan</a>"
+    },
+    en: {
+      headerDesc: "Webdeveloper • 14 years old • Netherlands",
+      navAbout: "About Me",
+      navProjects: "Projects",
+      navReviews: "Reviews",
+      navPricing: "Pricing",
+      navContact: "Contact",
+      aboutTitle: "About Me",
+      aboutText: "I am Bastiaan, a young webdeveloper from the Netherlands. I build modern, fast and mobile-friendly websites for entrepreneurs and small businesses. Currently I offer my services for free to gain experience and projects.",
+      projectsTitle: "Projects",
+      projectsText: "Currently there are no open projects.\nDo you want to see examples or a demo?",
+      projectsMail: "Email me for examples",
+      reviewsTitle: "Reviews",
+      reviewsDesc: "Example reviews from demo and test projects.",
+      review1Text: "Sleek design and fast website. Looks professional.",
+      review1Name: "– Nick Olaak",
+      review2Text: "Good communication and thinks along with what you want.",
+      review2Name: "– Janne Sleijter",
+      review3Text: "Website works perfectly on mobile and loads fast.",
+      review3Name: "– Timo Wellenburg",
+      pricingTitle: "Pricing",
+      pricingDesc: "All services are currently free.",
+      priceTh1: "Service",
+      priceTh2: "Description",
+      priceTh3: "Price",
+      price1: "Website Development",
+      price1Desc: "Full website from A to Z",
+      price2: "Website Improvement",
+      price2Desc: "Design, speed and mobile",
+      price3: "Examples / demos",
+      price3Desc: "On request via email",
+      contactTitle: "Contact",
+      contactText: "Ready to start or questions? Email me directly.",
+      contactMail: "Email Bastiaan",
+      contactInfo: "Tel: 0683846454<br>Email: webdeveloperbastiaan@gmail.com<br>Website: <a href='https://bastiaan-de-jonge-23432.github.io/webdeveloperbastiaan/' target='_blank'>webdeveloperbastiaan</a>"
+    },
+    de: {
+      headerDesc: "Webentwickler • 14 Jahre alt • Niederlande",
+      navAbout: "Über mich",
+      navProjects: "Projekte",
+      navReviews: "Bewertungen",
+      navPricing: "Preise",
+      navContact: "Kontakt",
+      aboutTitle: "Über mich",
+      aboutText: "Ich bin Bastiaan, ein junger Webentwickler aus den Niederlanden. Ich erstelle moderne, schnelle und mobilfreundliche Websites für Unternehmer und kleine Unternehmen. Derzeit biete ich meine Dienste kostenlos an, um Erfahrung und Projekte zu sammeln.",
+      projectsTitle: "Projekte",
+      projectsText: "Derzeit gibt es keine offenen Projekte.\nMöchten Sie Beispiele oder eine Demo sehen?",
+      projectsMail: "E-Mail für Beispiele",
+      reviewsTitle: "Bewertungen",
+      reviewsDesc: "Beispielbewertungen von Demo- und Testprojekten.",
+      review1Text: "Elegantes Design und schnelle Website. Sieht professionell aus.",
+      review1Name: "– Nick Olaak",
+      review2Text: "Gute Kommunikation und denkt mit, was Sie wollen.",
+      review2Name: "– Janne Sleijter",
+      review3Text: "Website funktioniert perfekt auf dem Handy und lädt schnell.",
+      review3Name: "– Timo Wellenburg",
+      pricingTitle: "Preise",
+      pricingDesc: "Alle Dienstleistungen sind derzeit kostenlos.",
+      priceTh1: "Dienstleistung",
+      priceTh2: "Beschreibung",
+      priceTh3: "Preis",
+      price1: "Website erstellen",
+      price1Desc: "Vollständige Website von A bis Z",
+      price2: "Website verbessern",
+      price2Desc: "Design, Geschwindigkeit und mobil",
+      price3: "Beispiele / Demos",
+      price3Desc: "Auf Anfrage per E-Mail",
+      contactTitle: "Kontakt",
+      contactText: "Bereit zu starten oder Fragen? E-Mail direkt.",
+      contactMail: "E-Mail an Bastiaan",
+      contactInfo: "Tel: 0683846454<br>E-Mail: webdeveloperbastiaan@gmail.com<br>Website: <a href='https://bastiaan-de-jonge-23432.github.io/webdeveloperbastiaan/' target='_blank'>webdeveloperbastiaan</a>"
+    },
+    fr: {
+      headerDesc: "Développeur Web • 14 ans • Pays-Bas",
+      navAbout: "À propos de moi",
+      navProjects: "Projets",
+      navReviews: "Avis",
+      navPricing: "Tarifs",
+      navContact: "Contact",
+      aboutTitle: "À propos de moi",
+      aboutText: "Je suis Bastiaan, un jeune développeur web des Pays-Bas. Je crée des sites modernes, rapides et adaptés aux mobiles pour les entrepreneurs et petites entreprises. Actuellement, j'offre mes services gratuitement pour acquérir de l'expérience et des projets.",
+      projectsTitle: "Projets",
+      projectsText: "Actuellement, il n'y a pas de projets ouverts.\nVoulez-vous voir des exemples ou une démo ?",
+      projectsMail: "Envoyez-moi un email pour des exemples",
+      reviewsTitle: "Avis",
+      reviewsDesc: "Exemples d'avis provenant de projets de démonstration et tests.",
+      review1Text: "Design élégant et site rapide. Semble professionnel.",
+      review1Name: "– Nick Olaak",
+      review2Text: "Bonne communication et réfléchit à ce que vous voulez.",
+      review2Name: "– Janne Sleijter",
+      review3Text: "Le site fonctionne parfaitement sur mobile et se charge rapidement.",
+      review3Name: "– Timo Wellenburg",
+      pricingTitle: "Tarifs",
+      pricingDesc: "Tous les services sont actuellement gratuits.",
+      priceTh1: "Service",
+      priceTh2: "Description",
+      priceTh3: "Prix",
+      price1: "Création de site Web",
+      price1Desc: "Site complet de A à Z",
+      price2: "Amélioration du site",
+      price2Desc: "Design, vitesse et mobile",
+      price3: "Exemples / démos",
+      price3Desc: "Sur demande par e-mail",
+      contactTitle: "Contact",
+      contactText: "Prêt à commencer ou questions ? Envoyez-moi un email directement.",
+      contactMail: "Envoyez un email à Bastiaan",
+      contactInfo: "Tél : 0683846454<br>Email : webdeveloperbastiaan@gmail.com<br>Site : <a href='https://bastiaan-de-jonge-23432.github.io/webdeveloperbastiaan/' target='_blank'>webdeveloperbastiaan</a>"
+    }
+  };
+
+  function setLanguage(lang) {
+    document.getElementById('header-desc').innerHTML = texts[lang].headerDesc;
+    document.getElementById('nav-about').innerHTML = texts[lang].navAbout;
+    document.getElementById('nav-projects').innerHTML = texts[lang].navProjects;
+    document.getElementById('nav-reviews').innerHTML = texts[lang].navReviews;
+    document.getElementById('nav-pricing').innerHTML = texts[lang].navPricing;
+    document.getElementById('nav-contact').innerHTML = texts[lang].navContact;
+
+    document.getElementById('about-title').innerHTML = texts[lang].aboutTitle;
+    document.getElementById('about-text').innerHTML = texts[lang].aboutText;
+
+    document.getElementById('projects-title').innerHTML = texts[lang].projectsTitle;
+    document.getElementById('projects-text').innerHTML = texts[lang].projectsText;
+    document.getElementById('projects-mail').innerHTML = texts[lang].projectsMail;
+
+    document.getElementById('reviews-title').innerHTML = texts[lang].reviewsTitle;
+    document.getElementById('reviews-desc').innerHTML = texts[lang].reviewsDesc;
+    document.getElementById('review1-text').innerHTML = texts[lang].review1Text;
+    document.getElementById('review1-name').innerHTML = texts[lang].review1Name;
+    document.getElementById('review2-text').innerHTML = texts[lang].review2Text;
+    document.getElementById('review2-name').innerHTML = texts[lang].review2Name;
+    document.getElementById('review3-text').innerHTML = texts[lang].review3Text;
+    document.getElementById('review3-name').innerHTML = texts[lang].review3Name;
+
+    document.getElementById('pricing-title').innerHTML = texts[lang].pricingTitle;
+    document.getElementById('pricing-desc').innerHTML = texts[lang].pricingDesc;
+    document.getElementById('price-th1').innerHTML = texts[lang].priceTh1;
+    document.getElementById('price-th2').innerHTML = texts[lang].priceTh2;
+    document.getElementById('price-th3').innerHTML = texts[lang].priceTh3;
+    document.getElementById('price1').innerHTML = texts[lang].price1;
+    document.getElementById('price1-desc').innerHTML = texts[lang].price1Desc;
+    document.getElementById('price2').innerHTML = texts[lang].price2;
+    document.getElementById('price2-desc').innerHTML = texts[lang].price2Desc;
+    document.getElementById('price3').innerHTML = texts[lang].price3;
+    document.getElementById('price3-desc').innerHTML = texts[lang].price3Desc;
+
+    document.getElementById('contact-title').innerHTML = texts[lang].contactTitle;
+    document.getElementById('contact-text').innerHTML = texts[lang].contactText;
+    document.getElementById('contact-mail').innerHTML = texts[lang].contactMail;
+    document.getElementById('contact-info').innerHTML = texts[lang].contactInfo;
+  }
+</script>
+
 </body>
 </html>
-
-
-
